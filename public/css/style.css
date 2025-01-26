@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 90%;
+    /* Добавлено для адаптивности на мобильных устройствах */
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Легкая тень для объема */
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    /* Чуть больше отступ для удобства */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    /* Более светлый цвет для границ */
+    font-size: 16px;
+    box-sizing: border-box;
+    /* Учитывает отступы в размере поля */
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Более крупный шрифт для кнопки */
+    transition: background-color 0.3s ease;
+    /* Плавный переход цвета */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Подчёркивание при наведении */
+}
