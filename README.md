@@ -1,92 +1,100 @@
-# Registration and Login System with Node.js and PostgreSQL
+# Singapore Web Application
 
-## Project Description
-This project implements a simple registration and login system using Node.js for the server-side and PostgreSQL as the database. The application allows users to register, log in, and securely manage their credentials.
+## Description
+This project is a web application that provides various functionalities such as QR code generation, BMI calculation, a weather forecast feature, and a CRUD blog system. The application is built using Node.js, Express, MongoDB, and various APIs.
 
 ## Features
-- User registration with email, username, and password.
-- Password hashing for secure storage (using `bcrypt`).
-- Login functionality with user validation.
-- Database interaction using PostgreSQL.
-- Clean and responsive design for forms.
+- **User Authentication**: Users can register and log in to access different features.
+- **Nodemailer Integration**: Upon successful registration, users receive a welcome email using Nodemailer.
+- **QR Code Generator**: Users can generate QR codes for any URL.
+- **BMI Calculator**: Calculates BMI based on user input.
+- **Weather Forecast**: Fetches weather data based on user-entered cities.
+- **Blog CRUD System**: Users can create, read, update, and delete blog posts.
 
-## Technologies Used
-- **Backend**: Node.js, Express.js
-- **Database**: PostgreSQL
-- **Packages**: 
-  - `express` for server setup.
-  - `bcrypt` for password hashing.
-  - `pg` for database connection.
-  - `dotenv` for environment variables.
-- **Frontend**: HTML, CSS
-
-## Setup and Installation
+## Installation
 
 ### Prerequisites
-- Node.js installed on your machine.
-- PostgreSQL installed and configured.
-- Basic knowledge of command-line tools.
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/)
 
-### Steps to Run
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-repo-name.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd your-project-folder
-    ```
-3. Install the dependencies:
-    ```bash
-    npm install
-    ```
-4. Set up environment variables:
-    - Create a `.env` file in the root directory.
-    - Add the following variables:
-        ```env
-        DATABASE_URL=postgres://username:password@localhost:5432/your_database_name
-        PORT=3000
-        ```
-5. Create the database:
-    - Open your PostgreSQL client or terminal.
-    - Run the following commands:
-        ```sql
-        CREATE DATABASE your_database_name;
-        \c your_database_name;
-        CREATE TABLE users (
-            id SERIAL PRIMARY KEY,
-            username VARCHAR(255) NOT NULL,
-            email VARCHAR(255) UNIQUE NOT NULL,
-            password VARCHAR(255) NOT NULL
-        );
-        ```
-6. Start the server:
-    ```bash
-    npm start
-    ```
-7. Open your browser and go to:
-    ```
-    http://localhost:3000
-    ```
-
-## Project Structure
+### Steps to Install
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/akerkeittt/final-backend.git
+   cd your-repo
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Set up:
+   ```
+   MONGO_URI=mongodb://127.0.0.1:27017/user_auth
+   WEATHER_API_KEY=your_weather_api_key
+   TIMEZONE_API_KEY=your_timezone_api_key
+   PIXABAY_API_KEY=your_pixabay_api_key
+   EMAIL_USER=your_email@example.com
+   EMAIL_PASS=your_email_password
+   ```
+4. Start the server:
+   ```sh
+   node server.js
+   ```
+5. Open your browser and go to:
+   ```sh
+   http://localhost:5000
+   ```
 
 ## Usage
-- **Registration**: Navigate to `/register.html` to create an account.
-- **Login**: Navigate to `/login.html` to log in using your credentials.
-- **Home**: After login, you will be redirected to the home page.
 
-## Troubleshooting
-If you encounter errors, ensure:
-1. PostgreSQL is running, and your database credentials in `.env` are correct.
-2. All required npm packages are installed (`npm install`).
-3. The database structure matches the schema provided above.
+### User Registration & Login
+- Register a new user at `/register`.
+- After successful registration, an email will be sent to the user using Nodemailer.
+- Login at `/login`.
 
-## Future Improvements
-- Add password reset functionality.
-- Implement session management for user authentication.
-- Add input validation on both client and server sides.
+### QR Code Generator
+- Visit `/qr` to generate QR codes for any URL.
+
+### BMI Calculator
+- Go to `/bmi` and enter weight and height to calculate BMI.
+
+### Weather Forecast
+- Navigate to `/weather` and enter a city name to fetch weather details.
+
+### Blog System (CRUD)
+- Create, read, update, and delete blog posts at `/blogs`.
+
+## API Endpoints
+
+### Authentication
+- `POST /register` - Registers a new user and sends a welcome email.
+- `POST /login` - Authenticates a user.
+- `POST /logout` - Logs out the user.
+
+### QR Code
+- `POST /generate` - Generates a QR code for a given URL.
+
+### BMI Calculator
+- `POST /calculate-bmi` - Calculates BMI based on user input.
+
+### Weather API
+- `GET /weather?city={cityName}` - Fetches weather details for a specified city.
+
+### Blog API
+- `POST /blogs` - Creates a new blog post.
+- `GET /blogs` - Retrieves all blog posts.
+- `GET /blogs/{id}` - Fetches a single blog post by ID.
+- `PUT /blogs/{id}` - Updates a blog post.
+- `DELETE /blogs/{id}` - Deletes a blog post.
+
+## Technologies Used
+- **Backend**: Node.js, Express.js, MongoDB, Mongoose
+- **Frontend**: HTML, CSS, JavaScript
+- **APIs**: OpenWeatherMap API, TimeZoneDB API, Pixabay API
+- **Libraries**: Nodemailer, QR-Image, Bcrypt, Body-parser, Axios
 
 ## License
 This project is licensed under the MIT License.
+
 

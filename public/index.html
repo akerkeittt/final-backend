@@ -4,16 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Singapore</title>
+    <link href="css/singapore.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="home-container">
-        <h1>Welcome to the Home Page</h1>
-        <p>You are successfully logged in.</p>
-        <a href="/login.html">Logout</a>
-    </div>
+    <header class="header">
+        <nav class="header-navbar">
+            <ul class="nav-ul">
+                <li class="header-list"><a href="#home" class="header_link">Home</a></li>
+                <li class="header-list"><a href="#about" class="header_link">About</a></li>
+                <li class="header-list"><a href="#facts" class="header_link">Facts</a></li>
+                <li class="header-list"><a href="/qr" class="header_link">QR</a></li>
+                <li class="header-list"><a href="/bmi" class="header_link">BMI</a></li>
+                <li class="header-list"><a href="/crud" class="header_link">CRUD</a></li>
+                <li class="header-list"><a href="/w" class="header_link">Weather</a></li>
+            </ul>
+            <button id="logoutButton" class="logout-btn">Logout</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1 class="bigtext">Singapore</h1>
+        </section>
+
+        <section id="about" class="expl">
+            <div class="container">
+                <p>
+                    Singapore, officially the Republic of Singapore, is an island country and city-state in Southeast
+                    Asia.
+                    It consists of one main island, 63 satellite islands, and one outlying islet.
+                    Singapore is located near the equator, off the southern tip of the Malay Peninsula.
+                </p>
+            </div>
+            <div class="container">
+                <img src="imgs/sngp.jpg" alt="Singapore Skyline">
+            </div>
+        </section>
+
+        <section id="facts" class="facts-section">
+            <h2>Facts about Singapore</h2>
+            <input type="text" class="search-input" placeholder="Search facts..." />
+            <button class="show_button" id="toggleFacts">Show Facts</button>
+            <ul id="factsList" class="facts-list hidden">
+                <li>🌿 Singapore is one of the world's greenest cities.</li>
+                <li>🌊 It has the world's tallest indoor waterfall.</li>
+                <li>✈️ Changi Airport has been rated the best airport for years.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>Contact us at <a href="mailto:info@singapore.com">info@singapore.com</a></p>
+    </footer>
+
+    <script>
+        document.getElementById("logoutButton").addEventListener("click", () => {
+            fetch("/logout", { method: "POST" })
+                .then(() => window.location.href = "/")
+                .catch(err => console.error("Logout error:", err));
+        });
+    </script>
+
+    <script src="singapore.js"></script>
 </body>
 
 </html>
